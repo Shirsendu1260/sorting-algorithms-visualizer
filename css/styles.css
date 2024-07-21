@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap');
+
+* {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.intro-text {
+    font-weight: 200;
+    text-align: center;
+    color: #d4d4d4;
+}
+
+.content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    overflow: auto;
+}
+
+.navbar {
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #F0F5F9;
+}
+
+#reset-btn:hover {
+    color: #0d6efd;
+}
+
+.highlighted-algo-btn:disabled {
+    color: #CDDEFF;
+    cursor: not-allowed;
+    opacity: 1.2;
+}
+
+.btn-sm {
+    border-radius: 50%;
+    display: flex;
+}
+
+#playBtn,
+#pauseBtn,
+#stopBtn {
+    display: none;
+}
+
+.circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.comp-circle {
+    background-color: #96C9F4;
+}
+
+.swap-circle {
+    background-color: #0d6efd;
+}
+
+.label {
+    font-size: small;
+}
+
+#barsCon {
+    height: 180px;
+    display: flex;
+}
+
+.bar {
+    width: 9px;
+    background-color: #D6E6F2;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+.sav {
+    font-weight: 900;
+}
+
+.fixed-footer {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.fixed-footer a {
+    font-weight: 400;
+    text-decoration: none;
+}
