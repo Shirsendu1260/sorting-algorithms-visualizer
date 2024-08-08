@@ -1,5 +1,5 @@
-const n = 60;
-const array = [];
+var n = 66; // Initial size of the array
+var array;
 var algo = 0;
 
 // Variable to track whether the animation is running or not
@@ -14,7 +14,7 @@ var moves = [];
 
 
 
-// Get the input range element (that will be responsible for selecting visualization speed) by its id
+// Get the input range element that will be responsible for selecting visualization speed
 const visSpeedSelector = document.getElementById('speed-selector');
 
 // Store the visualization speed using event listener when input is provided
@@ -24,13 +24,45 @@ visSpeedSelector.addEventListener('input', function () {
 });
 // console.log(visSpeed);
 
-// Get the span element that will show the speed level above the input range
+// Get the span element that will show the speed level below the input range
 const speedLevel = document.getElementById('speed-lvl');
 
-// Dynamically display the visualization speed level above the input range element using event listener when input is provided
+// Dynamically display the visualization speed level below the input range element using event listener when input is provided
 visSpeedSelector.addEventListener('input', function () {
     speedLevel.innerHTML = visSpeed / 10;
 });
+
+
+
+// Get the input range element that will be responsible for selecting the size of the array
+const arraySizeSelector = document.getElementById('array-size-selector');
+
+// Store the array size using event listener when input is provided
+arraySizeSelector.addEventListener('input', function () {
+    n = parseInt(arraySizeSelector.value);
+    init(n);
+    // console.log(n);
+    // console.log(typeof (n));
+});
+
+// Get the span element that will show the array size level below the input range
+const arraySizeLevel = document.getElementById('array-size-lvl');
+
+// JS object to map the bar counts to their corresponding array size levels
+levels = {
+    6: 1,
+    21: 2,
+    36: 3,
+    51: 4,
+    66: 5
+};
+
+// Dynamically display the array size level below the input range element using event listener when input is provided
+arraySizeSelector.addEventListener('input', function () {
+    arraySizeLevel.innerHTML = levels[n];
+});
+
+
 
 // Select every navbar buttons (including the reset button) at once
 const allNavButtons = document.querySelectorAll('.navbar-btns');
@@ -50,6 +82,9 @@ function disableNavbarButtons(buttonId) {
         // Add the highlight class to the button of the currently executing algorithm to make it look like it is currently executing
         document.getElementById(buttonId).classList.add('highlighted-algo-btn');
     }
+
+    // Disable the array size selector also
+    arraySizeSelector.disabled = true;
 }
 
 
@@ -66,12 +101,23 @@ function enableResetButton() {
 
 
 
+// Function to reset the array size input range to its default value i.e. max value 66
+function resetArraySizeSelector() {
+    arraySizeSelector.value = 66;
+    arraySizeLevel.innerHTML = 5;
+}
+
+
+
 // Function to enable every navbar buttons
 function enableNavbarButtons() {
     // Loop through every navbar buttons and enable them
     for (let i = 0; i < allNavButtons.length; i++) {
         allNavButtons[i].disabled = false;
     }
+
+    // Enable the array size selector also
+    arraySizeSelector.disabled = false;
 }
 
 
@@ -141,7 +187,7 @@ function displayAllBars(move) {
 
         // If 'move' includes the current index, then change the corresponding bar's color based on the index's involvement in swapping process
         if (move && move.indices.includes(i)) {
-            bar.style.backgroundColor = move.swap == false ? '#96C9F4' : '#0d6efd';
+            bar.style.backgroundColor = move.swap == false ? '#3fa2f6' : '#0f67b1';
         }
 
         // Append the updated bar to the main container
@@ -152,7 +198,9 @@ function displayAllBars(move) {
 
 
 // Function to fill the array with random values
-function init() {
+function init(n) {
+    array = new Array(n);
+
     for (var i = 0; i < n; i++) {
         array[i] = Math.random();
     }
@@ -359,4 +407,4 @@ function displayTimeComplexity() {
 
 
 // initialize all
-init();
+init(n);

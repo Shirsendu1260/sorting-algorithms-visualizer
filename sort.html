@@ -14,6 +14,7 @@
 
 <body>
   <div class="content">
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-secondary">
       <div class="container-fluid">
         <a class="navbar-brand mx-2 sav" href=".\index.html"><span class="text-primary">S</span>AV</a>
@@ -26,7 +27,7 @@
             class="navbar-nav justify-content-end align-items-center flex-grow-1 me-auto my-1 my-lg-0 px-2 navbar-nav-scroll"
             style="--bs-scroll-height: auto">
             <li class="nav-item mx-lg-1 mb-1 mb-lg-0">
-              <button onclick="init();" class="navbar-btns btn nav-link" id="reset-btn">
+              <button onclick="init(66);resetArraySizeSelector();" class="navbar-btns btn nav-link" id="reset-btn">
                 Reset
               </button>
             </li>
@@ -64,10 +65,12 @@
         </div>
       </div>
     </nav>
+
+    <!-- Animation Control Buttons -->
     <div class="main">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-11 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+          <div class="col-11 col-sm-9 col-md-9 col-lg-9 col-xl-9">
             <div class="d-flex justify-content-center">
               <button type="button" class="btn btn-sm btn-secondary mx-1" id="playBtn" onclick="playAnimation();"><svg
                   xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -91,18 +94,39 @@
           </div>
         </div>
       </div>
+
+      <!-- Speed Selector -->
       <div class="container mt-2">
         <div class="row justify-content-center">
-          <div class="col-11 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-            <div class="card">
-              <div class="card-body d-flex justify-content-between">
-                <div class="col">
-                  <label for="speed-selector" class="form-label d-flex justify-content-center">Adjust visualization
-                    speed</label>
-                  <input type="range" class="form-range" min="10" max="500" step="10" value="50" id="speed-selector" />
-                  <span id="speed-lvl">5</span>
+          <div class="col-11 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <div class="row">
+              <div class="col-6 pe-1">
+                <div class="card h-100">
+                  <div class="card-body d-flex justify-content-between">
+                    <div class="col">
+                      <label for="speed-selector" class="form-label d-flex justify-content-center">Set Speed</label>
+                      <input type="range" class="form-range" min="10" max="500" step="10" value="50"
+                        id="speed-selector" />
+                      <span id="speed-lvl">5</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="card ms-3">
+              </div>
+              <div class="col-3 px-1">
+                <div class="card h-100">
+                  <div class="card-body d-flex justify-content-between">
+                    <div class="col">
+                      <label for="array-size-selector" class="form-label d-flex justify-content-center">Resize
+                        Array</label>
+                      <input type="range" class="form-range" min="6" max="66" step="15" value="66"
+                        id="array-size-selector" />
+                      <span id="array-size-lvl">5</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 ps-1">
+                <div class="card h-100">
                   <div class="card-body">
                     <div class="mb-1">
                       <div class="circle comp-circle"></div>
@@ -119,9 +143,11 @@
           </div>
         </div>
       </div>
+
+      <!-- Basic Information -->
       <div class="container mt-2">
         <div class="row justify-content-center">
-          <div class="col-11 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+          <div class="col-11 col-sm-9 col-md-9 col-lg-9 col-xl-9">
             <div class="accordion" id="accordionExample">
               <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -139,14 +165,18 @@
           </div>
         </div>
       </div>
+
+      <!-- Bars -->
       <div class="container mt-2">
         <div class="row justify-content-center">
-          <div class="col-11 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-            <div id="barsCon"></div>
+          <div class="col-11 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+            <div id="barsCon" class="d-flex justify-content-center"></div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
     <footer class="fixed-footer bg-body-secondary text-light text-opacity-50">
       <p class="m-auto">
         &copy; 2024 |
