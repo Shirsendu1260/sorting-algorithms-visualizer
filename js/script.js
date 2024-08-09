@@ -1,4 +1,4 @@
-var n = 66; // Initial size of the array
+var n = 81; // Initial size of the array
 var array;
 var algo = 0;
 
@@ -54,7 +54,8 @@ levels = {
     21: 2,
     36: 3,
     51: 4,
-    66: 5
+    66: 5,
+    81: 6
 };
 
 // Dynamically display the array size level below the input range element using event listener when input is provided
@@ -101,10 +102,10 @@ function enableResetButton() {
 
 
 
-// Function to reset the array size input range to its default value i.e. max value 66
+// Function to reset the array size input range to its default value i.e. max value 81
 function resetArraySizeSelector() {
-    arraySizeSelector.value = 66;
-    arraySizeLevel.innerHTML = 5;
+    arraySizeSelector.value = 81;
+    arraySizeLevel.innerHTML = 6;
 }
 
 
